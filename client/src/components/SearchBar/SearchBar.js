@@ -3,22 +3,21 @@ import { Search, Grid } from 'semantic-ui-react';
 
 export default class SearchBar extends Component {
 	componentWillMount() {
-		// this.resetComponent();
+		this.timer = null;
 	}
 
 	handleResultSelect = (e, { result }) => this.props.setValue(result.title);
 
 	handleSearchChange = (e) => {
 		const value = e.target.value;
-		this.props.toggleLoading();
 		this.props.setValue(value);
 
-		setTimeout(() => {
+		clearTimeout(this.timer);
+
+		this.timer = setTimeout(() => {
 			if (value.length < 1) {
 				return this.props.resetSearch();
 			}
-			this.props.toggleLoading();
-
 			this.props.getResults(this.props.value);
 		}, 300);
 	};

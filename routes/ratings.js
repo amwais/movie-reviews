@@ -3,6 +3,35 @@ const imdb = require('imdb-api');
 
 const router = express.Router();
 
+router.get('/search/:title', (req, res) => {
+	imdb
+		.search(
+			{
+				name: `${req.params.title.replace(' ', '_')}`
+			},
+			{
+				apiKey: 'bda00881',
+				timeout: 30000
+			}
+		)
+		.then(({ results }) => {
+			const searchResults = results.map(({ title, year, poster }) => {
+				const result = {
+					title,
+					price: year,
+					image: poster
+				};
+				return result;
+			});
+			res.json(searchResults.slice(0, 4));
+		})
+		.catch((err) => {
+			res.json({
+				error: err.message
+			});
+		});
+});
+
 router.get('/:title', (req, res) => {
 	imdb
 		.get(
@@ -22,14 +51,18 @@ router.get('/:title', (req, res) => {
 				genres,
 				director,
 				country,
-				poster,
-				ratings,
+				image: poster,
+				// description: ratings,
 				type,
 				series,
 				imdburl
 			});
 		})
-		.catch((err) => err);
+		.catch((err) =>
+			res.json({
+				error: err.message
+			})
+		);
 });
 
 // Example with web scraping

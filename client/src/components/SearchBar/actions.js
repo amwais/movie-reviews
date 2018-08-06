@@ -20,10 +20,28 @@ export const toggleLoading = () => (dispatch) => {
 };
 
 export const getResults = (value) => (dispatch) => {
-	axios.get(`/ratings/${value}`).then((res) => {
-		dispatch({
-			type: 'SET_RESULTS',
-			payload: res.data
-		});
+	dispatch({
+		type: 'TOGGLE_LOADING'
 	});
+	axios
+		.get(`/ratings/search/${value}`)
+		.then((res) => {
+			if (!res.data.error) {
+				dispatch({
+					type: 'SET_RESULTS',
+					payload: res.data
+				});
+				dispatch({
+					type: 'TOGGLE_LOADING'
+				});
+			} else {
+				dispatch({
+					type: 'TOGGLE_LOADING'
+				});
+				dispatch({
+					type: 'EMPTY_RESULTS'
+				});
+			}
+		})
+		.catch((err) => console.log(err));
 };

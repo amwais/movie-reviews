@@ -15,10 +15,15 @@ export default (state = initialState, action) => {
 			return {
 				...initialState
 			};
+		case 'EMPTY_RESULTS':
+			return {
+				...state,
+				results: []
+			};
 		case 'SET_RESULTS':
 			return {
 				...state,
-				results: [ action.payload ]
+				results: action.payload
 			};
 		case 'SET_VALUE':
 			return {
