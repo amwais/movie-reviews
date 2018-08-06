@@ -1,0 +1,32 @@
+{
+  "name": "movie-reviewer",
+  "version": "1.0.0",
+  "description": "Show imdb & RT combined reviews",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm --prefix client start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Amir Waisman",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "concurrently": "^3.6.1",
+    "express": "^4.16.3",
+    "imdb-api": "^4.0.0",
+    "npm": "^6.3.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.1",
+    "x-ray": "^2.3.3"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "nodemon": "^1.18.3"
+  }
+}

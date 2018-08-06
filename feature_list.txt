@@ -1,0 +1,4 @@
+# Search Bar:
+
+  1. User types, up to 3 results are displayed, each with: Name, Year, mini-poster
+  2. User clicks, The search bar resets, the result page is pupolated
