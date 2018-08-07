@@ -1,5 +1,15 @@
 import axios from 'axios';
 
+export const addCard = (selection) => (dispatch) => {
+	console.log(selection);
+	axios.get(`/ratings/${selection.title}`).then((response) => {
+		dispatch({
+			type: 'ADD_CARD',
+			payload: response.data
+		});
+	});
+};
+
 export const setValue = (value) => (dispatch) => {
 	dispatch({
 		type: 'SET_VALUE',

@@ -18,7 +18,7 @@ router.get('/search/:title', (req, res) => {
 			const searchResults = results.map(({ title, year, poster }) => {
 				const result = {
 					title,
-					price: year,
+					price: `${year}`,
 					image: poster
 				};
 				return result;
@@ -55,7 +55,8 @@ router.get('/:title', (req, res) => {
 				// description: ratings,
 				type,
 				series,
-				imdburl
+				imdburl,
+				ratings
 			});
 		})
 		.catch((err) =>

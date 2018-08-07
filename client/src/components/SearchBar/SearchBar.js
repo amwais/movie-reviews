@@ -6,7 +6,7 @@ export default class SearchBar extends Component {
 		this.timer = null;
 	}
 
-	handleResultSelect = (e, { result }) => this.props.setValue(result.title);
+	handleResultSelect = (e, { result }) => this.props.addCard(result);
 
 	handleSearchChange = (e) => {
 		const value = e.target.value;
@@ -25,7 +25,7 @@ export default class SearchBar extends Component {
 	render() {
 		const { loading, value, results } = this.props;
 
-		console.log(results);
+		// console.log(results);
 
 		return (
 			<Grid>
