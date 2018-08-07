@@ -1,0 +1,11 @@
+.app-header {
+  display: flex;
+  background-color: black;
+  color: rgb(151, 219, 49);
+  padding: 0.5%;
+  margin: auto;
+}
+
+.cards-area {
+  background-color: #222;
+}

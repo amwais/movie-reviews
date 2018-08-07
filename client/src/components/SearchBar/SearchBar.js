@@ -6,7 +6,10 @@ export default class SearchBar extends Component {
 		this.timer = null;
 	}
 
-	handleResultSelect = (e, { result }) => this.props.addCard(result);
+	handleResultSelect = (e, { result }) => {
+		this.props.addCard(result);
+		this.props.resetSearch();
+	};
 
 	handleSearchChange = (e) => {
 		const value = e.target.value;
@@ -24,11 +27,14 @@ export default class SearchBar extends Component {
 
 	render() {
 		const { loading, value, results } = this.props;
-
-		// console.log(results);
-
+		const style = {
+			marginLeft: '65%',
+			marginRight: 'auto',
+			marginTop: 'auto',
+			marginBottom: 'auto'
+		};
 		return (
-			<Grid>
+			<Grid style={style}>
 				<Grid.Column width={16}>
 					<Search
 						loading={loading}
