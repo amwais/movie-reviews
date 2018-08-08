@@ -26,10 +26,18 @@ export default (props) => {
 
 	return (
 		<div>
-			<Card raised>
-				<Icon color="red" name="remove" onClick={props.handleDelete} />
-				<Image src={props.image} size="small" centered />
-				<Card.Content>
+			<Card raised href={'#'} style={{ backgroundColor: '#eaf2f1' }}>
+				<Icon color="red" name="remove" onClick={props.handleDelete} style={{ cursor: 'pointer' }} />
+				<Image
+					src={props.image}
+					size="small"
+					centered
+					ui={false}
+					className="title-poster"
+					href={props.imdburl}
+					target="_blank"
+				/>
+				<Card.Content className="card-content">
 					<Card.Header>{props.title}</Card.Header>
 					<Card.Meta>
 						<span>Director: {props.director}</span>

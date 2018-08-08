@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import Cards from './components/Cards';
 import store from './store';
 import { Provider } from 'react-redux';
+import { Button } from 'semantic-ui-react';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,9 @@ class App extends Component {
 				<div className="App">
 					<div className="app-header">
 						<h1 style={headerStyle}>Movie Ratings</h1>
+						{/* <Button basic inverted color="green" style={{ flex: '1' }}>
+							Green
+						</Button> */}
 						<SearchBar />
 					</div>
 					<div className="cards-area">
