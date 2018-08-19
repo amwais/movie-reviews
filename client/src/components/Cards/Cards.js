@@ -6,7 +6,8 @@ export default class Cards extends Component {
 	render() {
 		const containerStyle = {
 			display: 'flex',
-			flexWrap: 'wrap'
+			flexWrap: 'wrap',
+			justifyContent: 'center'
 		};
 		return (
 			<div>
